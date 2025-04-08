@@ -3,12 +3,11 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define BASE 0
-#define QWERTY 1
-#define LOWER 2
-#define RAISE 3
-#define WASD 4
-#define EXTRA_WASD 5
-#define WASD_TYPE 6
+#define LOWER 1
+#define RAISE 2
+#define WASD 3
+#define EXTRA_WASD 4
+#define WASD_TYPE 5
 
 #define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 25 32 33 34 35 36 37
 #define KEYS_R 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31 38 39 40 41 42 43
@@ -60,7 +59,6 @@
 
     keymap {
         compatible = "zmk,keymap";
-
         qwerty_layer {
             display-name = "qwerty";
 // ------------------------------------------------------------------------------------------------------------
@@ -98,15 +96,15 @@
         raise_layer {
             display-name = "raise";
 // ------------------------------------------------------------------------------------------------------------
-//         | MUTE | VOL+   |  VOL-   | BRI+        |  BRI-  |                |  BT 0 | BT 1 |  BT 2   | BT 3 | BT 4     | 
-//         | PREV | REWIND | PAUSE   | FASTFORWARD |  NEXT  |                | PGUP  | PGDN |  HOME   | END  | BT CLEAR |       
-// | reset | CAPS | INS    | PRNTSCR | MENU        | studio |                | <-    |   v  |   ^     |  ->  |  off     | reset |
-// |       |      |        |         | WASD        |  boot  |                | boot  |      |         |      |  POWER   | reset |
+//         | MUTE | VOL+   |  VOL-   | BRI+        |  BRI-  |                |  BT 0 | BT 1 |  BT 2 | BT 3 | BT 4     | 
+//         | PREV | REWIND | PAUSE   | FASTFORWARD |  NEXT  |                | PGUP  | HOME |   ^   | END  | BT CLEAR |       
+// | reset | CAPS | INS    | PRNTSCR | MENU        | studio |                | PGDN  |   <- |   v   |  ->  |  off     | reset |
+// |       |      |        | QWERTY  | WASD        |  boot  |                | boot  |      |       |      |  POWER   | reset |
 //                                   |             |        |      |  |      |       |      |
             bindings = <
           &kp C_MUTE &kp C_VOL_UP &kp C_VOL_DN &kp C_BRI_UP &kp  C_BRI_DN                &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                 
-          &kp C_PREV &kp C_RW     &kp C_PP     &kp C_FF     &kp C_NEXT                   &kp PG_UP    &kp PG_DN     &kp HOME       &kp END      &bt BT_CLR
-&sys_reset &kp CLCK   &kp INS      &kp PSCRN    &kp K_CMENU  &studio_unlock               &kp LEFT    &kp DOWN     &kp UP     &kp RIGHT    &soft_off   &sys_reset
+          &kp C_PREV &kp C_RW     &kp C_PP     &kp C_FF     &kp C_NEXT                   &kp PG_UP    &kp HOME     &kp UP       &kp END      &bt BT_CLR
+&sys_reset &kp CLCK   &kp INS      &kp PSCRN    &kp K_CMENU  &studio_unlock               &kp PG_DN    &kp LEFT     &kp DOWN     &kp RIGHT    &soft_off   &sys_reset
 &trans    &trans     &trans       &trans  &to WASD     &bootloader                  &bootloader  &trans       &trans       &trans       &kp C_PWR   &trans
                                                &trans       &trans         &trans &trans &trans       &trans 
             >;
@@ -115,17 +113,11 @@
 
         wasd_layer {
             display-name = "WASD-gaming";
-// ------------------------------------------------------------------------------------------------------------
-//         | MUTE | VOL+   |  VOL-   | BRI+        |  BRI-  |                |  BT 0 | BT 1 |  BT 2 | BT 3 | BT 4     | 
-//         | PREV | REWIND | PAUSE   | FASTFORWARD |  NEXT  |                | PGUP  | HOME |   ^   | END  | BT CLEAR |       
-// | reset | CAPS | INS    | PRNTSCR | MENU        | studio |                | PGDN  |   <- |   v   |  ->  |  off     | reset |
-// |       |      |        |         | QWERTY      |  boot  |                | boot  |      |       |      |  POWER   | reset |
-//                                   |             |        |      |  |      |       |      |
             bindings = <
           &kp N1     &kp N2   &kp N3   &kp N4   &kp N5                             &none  &none  &none  &none  &none 
-          &kp N6     &kp Q    &kp W    &kp E    &kp R                             &none  &none  &none  &none  &none 
-&kp TAB   &kp LSHFT  &kp A    &kp S    &kp D    &kp F                             &none  &none  &none  &none  &none &none 
-&none     &kp LCTRL  &kp Z    &kp X    &kp C    &kp V                             &none  &none  &none  &none  &none &none 
+          &kp N6     &kp Q    &kp W    &kp E    &kp R                              &none  &none  &none  &none  &none 
+&kp TAB   &kp LSHFT  &kp A    &kp S    &kp D    &kp F                              &none  &none  &none  &none  &none &none 
+&none     &kp LCTRL  &kp Z    &kp X    &kp C    &kp V                              &none  &none  &none  &none  &none &none 
                                        &mo EXTRA_WASD &kp SPACE &kp LALT   &wasdt  &none  &none 
             >;
         };
