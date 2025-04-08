@@ -10,7 +10,7 @@ manifest:
       revision: main
       import: app/west.yml
     - name: zmk-apiaster-module
-      remote: munnich
+      remote: nmunnich
       revision: main
       import: config/west.yml
   self:
