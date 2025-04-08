@@ -59,6 +59,7 @@
 
     keymap {
         compatible = "zmk,keymap";
+
         qwerty_layer {
             display-name = "qwerty";
 // ------------------------------------------------------------------------------------------------------------
@@ -96,15 +97,15 @@
         raise_layer {
             display-name = "raise";
 // ------------------------------------------------------------------------------------------------------------
-//         | MUTE | VOL+   |  VOL-   | BRI+        |  BRI-  |                |  BT 0 | BT 1 |  BT 2 | BT 3 | BT 4     | 
-//         | PREV | REWIND | PAUSE   | FASTFORWARD |  NEXT  |                | PGUP  | HOME |   ^   | END  | BT CLEAR |       
-// | reset | CAPS | INS    | PRNTSCR | MENU        | studio |                | PGDN  |   <- |   v   |  ->  |  off     | reset |
-// |       |      |        | QWERTY  | WASD        |  boot  |                | boot  |      |       |      |  POWER   | reset |
+//         | MUTE | VOL+   |  VOL-   | BRI+        |  BRI-  |                |  BT 0 | BT 1 |  BT 2   | BT 3 | BT 4     | 
+//         | PREV | REWIND | PAUSE   | FASTFORWARD |  NEXT  |                | PGUP  | PGDN |  HOME   | END  | BT CLEAR |       
+// | reset | CAPS | INS    | PRNTSCR | MENU        | studio |                | <-    |   v  |   ^     |  ->  |  off     | reset |
+// |       |      |        |         | WASD        |  boot  |                | boot  |      |         |      |  POWER   | reset |
 //                                   |             |        |      |  |      |       |      |
             bindings = <
           &kp C_MUTE &kp C_VOL_UP &kp C_VOL_DN &kp C_BRI_UP &kp  C_BRI_DN                &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                 
-          &kp C_PREV &kp C_RW     &kp C_PP     &kp C_FF     &kp C_NEXT                   &kp PG_UP    &kp HOME     &kp UP       &kp END      &bt BT_CLR
-&sys_reset &kp CLCK   &kp INS      &kp PSCRN    &kp K_CMENU  &studio_unlock               &kp PG_DN    &kp LEFT     &kp DOWN     &kp RIGHT    &soft_off   &sys_reset
+          &kp C_PREV &kp C_RW     &kp C_PP     &kp C_FF     &kp C_NEXT                   &kp PG_UP    &kp PG_DN     &kp HOME       &kp END      &bt BT_CLR
+&sys_reset &kp CLCK   &kp INS      &kp PSCRN    &kp K_CMENU  &studio_unlock               &kp LEFT    &kp DOWN     &kp UP     &kp RIGHT    &soft_off   &sys_reset
 &trans    &trans     &trans       &trans  &to WASD     &bootloader                  &bootloader  &trans       &trans       &trans       &kp C_PWR   &trans
                                                &trans       &trans         &trans &trans &trans       &trans 
             >;
