@@ -19,18 +19,6 @@
 #
 ---
 include:
-  - board: rp2040_zero
-    shield: apiaster_wired
-    artifact-name: apiaster-rp2040-zero
-  - board: rp2040_zero
-    shield: apiaster_wired
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-    artifact-name: apiaster-rp2040-zero-studio
-  - board: rp2040_zero
-    shield: apiaster_wired
-    snippet: zmk-usb-logging
-    artifact-name: apiaster-rp2040-logging
   - board: seeeduino_xiao_ble
     shield: apiaster_wired rgbled_adapter
     artifact-name: apiaster-xiao-ble
@@ -75,6 +63,3 @@ include:
   - board: seeeduino_xiao_ble
     shield: settings_reset
     artifact-name: xiao-ble-reset
-  - board: rp2040_zero
-    shield: settings_reset
-    artifact-name: rp2040-zero-reset
